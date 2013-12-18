@@ -19,7 +19,7 @@ process.stdin.on('data', function (lines) {
 	lines.split(/\n/).forEach(function(line){
 		if ((/.+,.+,.+/).test(line)) {
 			splitLine = line.split(/,/);
-			var ticketId = splitLine[1];
+			var ticketId = splitLine[2];
 	 		var xPos = splitLine[0];
 	 		var columnInd = Math.floor(xPos/columnWidth);
 	 		columnInd = Math.min(columnInd, 2);
