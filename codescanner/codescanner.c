@@ -11,7 +11,7 @@ zbar_image_scanner_t *scanner = NULL;
 
 void print_usage();
 
-void print_csv(const zbar_symbol_t *symbol, int symbol_index);
+void print_csv(const zbar_symbol_t *symbol);
 
 /* to complete a runnable example, this abbreviated implementation of
  * get_data() will use libpng to read an image file. refer to libpng
@@ -109,7 +109,6 @@ int main (int argc, char **argv)
     /* extract results */
     const zbar_symbol_t *symbol = NULL;
 
-	int symbol_index = 0;
     for(symbol = zbar_image_first_symbol(image); symbol != NULL; symbol = zbar_symbol_next(symbol))
     {
         zbar_symbol_type_t typ = zbar_symbol_get_type(symbol);
@@ -119,9 +118,8 @@ int main (int argc, char **argv)
         }
         else
         {
-            print_csv(symbol, symbol_index);
+            print_csv(symbol);
         }
-		symbol_index++;
     }
 
     /* clean up */
@@ -136,7 +134,7 @@ void print_usage()
     printf("Usage: zbar <in-file.png>\n");
 }
 
-void print_csv(const zbar_symbol_t *symbol, int symbol_index)
+void print_csv(const zbar_symbol_t *symbol)
 {
-    printf("%d,%d,%s\n", zbar_symbol_get_loc_x(symbol, symbol_index), zbar_symbol_get_loc_y(symbol, symbol_index), zbar_symbol_get_data(symbol));
+    printf("%d,%d,%s\n", zbar_symbol_get_loc_x(symbol, 0), zbar_symbol_get_loc_y(symbol, 0), zbar_symbol_get_data(symbol));
 }
