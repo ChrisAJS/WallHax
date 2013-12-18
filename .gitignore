@@ -5,3 +5,4 @@
 *.war
 *.ear
 codescanner/codescanner
+.DS_Store
