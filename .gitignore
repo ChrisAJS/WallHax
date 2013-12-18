@@ -1,8 +1,7 @@
 *.class
-
+*.o
 # Package Files #
 *.jar
 *.war
 *.ear
-
-bin
+codescanner/codescanner
