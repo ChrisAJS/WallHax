@@ -20,7 +20,7 @@ process.stdin.on('data', function (lines) {
 	 		var columnInd = Math.floor(xPos/columnWidth);
 	 		columnInd = Math.min(columnInd, 2);
 	 		columnInd = Math.max(columnInd, 0);
-	 		ticketLocations += columnNames[columnInd] + "," + ticketId+"\n";
+	 		ticketLocations += columnNames[columnInd] + " " + ticketId+"\n";
 		}
 	})
 	console.log(ticketLocations);

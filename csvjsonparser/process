@@ -1,3 +1,4 @@
 #!/bin/sh
+DIRNAME=`dirname $0`
 
-nodejs wallhax.js
+nodejs $DIRNAME/wallhax.js
