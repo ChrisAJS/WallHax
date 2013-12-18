@@ -1,14 +1,10 @@
-var jsonObject = 
-	[{
-	    "columnName": "todo",
-	    "tickets": []
-	}, {
-	    "columnName": "indev",
-	    "tickets": []
-	}, {
-	    "columnName": "done",
-	    "tickets": []
-	}];
+var ticketLocations = [];
+
+var columnNames = {};
+columnNames[0] = "To do";
+columnNames[1] = "In progress";
+columnNames[2] = "Done";
+
 
 var columnWidth = 682;
 
@@ -24,9 +20,9 @@ process.stdin.on('data', function (lines) {
 	 		var columnInd = Math.floor(xPos/columnWidth);
 	 		columnInd = Math.min(columnInd, 2);
 	 		columnInd = Math.max(columnInd, 0);
-	 		jsonObject[columnInd].tickets.push(ticketId);
+	 		ticketLocations.push(columnNames[columnInd] + "," + ticketId);
 		}
 	})
-	console.log(jsonObject);
+	console.log(ticketLocations);
 });
 
