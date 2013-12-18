@@ -6,3 +6,4 @@
 *.ear
 codescanner/codescanner
 *.pem
+.DS_Store

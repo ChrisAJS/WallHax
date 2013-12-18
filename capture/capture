@@ -3,11 +3,11 @@ echo Starting `date`
 
 TEMPFILE=`mktemp -u`
 
-uvccapture -v -o$TEMPFILE -x1920 -y1080 -G10 -S10 -C10 -B10
+uvccapture -v -o$TEMPFILE -x1280 -y720 -G48 -S10 -C20 -B10
 
 
 echo "Converting to greyscale"
 
-convert $TEMPFILE -colorspace Gray capture.png
+convert $TEMPFILE -gamma 1 -colorspace Gray capture.png
 
 echo "Done `date`"
