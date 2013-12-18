@@ -19,8 +19,8 @@ process.stdin.on('data', function (lines) {
 	lines.split(/\n/).forEach(function(line){
 		if ((/.+,.+,.+/).test(line)) {
 			splitLine = line.split(/,/);
-			var ticketId = splitLine[0];
-	 		var xPos = splitLine[1];
+			var ticketId = splitLine[1];
+	 		var xPos = splitLine[0];
 	 		var columnInd = Math.floor(xPos/columnWidth);
 	 		columnInd = Math.min(columnInd, 2);
 	 		columnInd = Math.max(columnInd, 0);
