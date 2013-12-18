@@ -1,0 +1,37 @@
+#!/bin/sh
+
+curlit() {
+	curl --insecure --data "{\"transition\":{\"id\":\"$2\"}}" --cert ./dev_me.pem --header "Content-Type: application/json" https://jira.dev.bbc.co.uk/rest/api/2/issue/$1/transitions
+}
+
+inprogress() {
+	echo Moving $1 to in progress
+	curlit $1 4
+}
+
+todone() {
+	echo Moving $1 to done
+	curlit $1 5
+}
+
+todo() {
+	echo Not moving $1 to do
+	#curlit $1 3
+}
+
+case $1 in
+	inprogress)
+	inprogress $2
+	;;
+	done)
+	todone $2
+	;;
+	todo)
+	todo $2
+	;;
+	*)
+	echo "BAH! use it with $0 [todo|inprogress|todone] [GB-number]"
+	;;
+esac
+
+
