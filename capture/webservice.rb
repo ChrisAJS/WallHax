@@ -1,6 +1,6 @@
 # myapp.rb
 
-
+#require 'IO'
 require 'sinatra'
 require 'rubygems'
 
@@ -42,6 +42,9 @@ post '/' do
   File.open('capture.jpg', "w") do |f|
     f.write(params['picture'][:tempfile].read)
  end
-IO.open("sh pipeline.sh")
+f = IO.popen('sh pipeline.sh')
+p f.readlines
+f.close
+
 redirect to('/') 
 end
