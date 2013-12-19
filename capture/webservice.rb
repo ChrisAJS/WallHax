@@ -42,5 +42,6 @@ post '/' do
   File.open('capture.jpg', "w") do |f|
     f.write(params['picture'][:tempfile].read)
  end
+IO.open("sh pipeline.sh")
 redirect to('/') 
 end
