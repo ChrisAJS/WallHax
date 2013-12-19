@@ -247,7 +247,7 @@ int main (int argc, char **argv)
     scanner = zbar_image_scanner_create();
 
     /* configure the reader */
-    zbar_image_scanner_set_config(scanner, 0, ZBAR_CFG_ENABLE, 1);
+    zbar_image_scanner_set_config(scanner, ZBAR_QRCODE, ZBAR_CFG_ENABLE,    1);
 
     /* obtain image data */
     int width = 0, height = 0;
