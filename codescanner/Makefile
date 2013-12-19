@@ -1,6 +1,6 @@
 OBJS=codescanner.o
-CFLAGS=-O2
-LIBS=-lzbar -lpng
+CFLAGS=-O2 -g
+LIBS=-lzbar -lpng -ljpeg
 LDFLAGS=
 PROG=codescanner
 
