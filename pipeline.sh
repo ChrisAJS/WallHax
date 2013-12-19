@@ -1,3 +1,3 @@
 #!/bin/sh
 
-./codescanner/codescanner.sh samples/codescanner-sample.png | csvjsonparser/process | xargs -n2 statusupdater/statusupdater
+./codescanner/codescanner.sh $1 | csvjsonparser/process | xargs -n2 statusupdater/statusupdater
